@@ -16,10 +16,22 @@ namespace LineComparision237
             Console.WriteLine("Enter the second coordinates x2 and y2");
             int x2 = Convert.ToInt32(Console.ReadLine());
             int y2 = Convert.ToInt32(Console.ReadLine());
-            double d1 = Math.Sqrt(Math.Pow(x2 - x1, 2) + Math.Pow(y2 - y1, 2));    //with using Pow function.
-            //double d1 = Math.Sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1));     //way 2 - without using function
-            Console.WriteLine($"First co-ordinates is {x1},{y1} & Second Co-ordinates is {x2},{y2}");
+
+            double d1 = Math.Sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1));
+            Console.WriteLine($"Provided co-ordinates (x1,y1):({x1},{y1})  &  (x2,y2):({x2},{y2})");
             return d1;
+        }
+        public static void EqualsMethod(double line1Distance, double line2Distance)
+        {
+            bool EqualsStatus = line1Distance.Equals(line2Distance);
+            if (EqualsStatus)
+            {
+                Console.WriteLine("Length value of both Line 1 and Line 2 are EQUAL");
+            }
+            else
+            {
+                Console.WriteLine("Length value of Line 1 and Line 2 are NOT equal");
+            }
         }
         static void Main(string[] args)
         {
@@ -32,6 +44,9 @@ namespace LineComparision237
             Console.WriteLine($"Found Line 2 length value : {line2Distance}");
             Console.WriteLine();
             Console.WriteLine($"So finally got Line 1 length value : {line1Distance} & Line 2 length value : {line2Distance}");
+
+            Console.Write("Using Equals Method output is :::: ");
+            GeometryLineComputataion.EqualsMethod(line1Distance, line2Distance);
         }
     }
 }
